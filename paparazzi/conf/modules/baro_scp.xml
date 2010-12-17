@@ -1,0 +1,21 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<!--
+     VTI SCP1000 pressure sensor (SPI)
+     @flag SENSOR_SYNC_SEND to transmit the data as it is acquired
+     -->
+
+<module name="baro_scp" dir="sensors">
+  <header>
+    <file name="baro_scp.h"/>
+  </header>
+  <init fun="baro_scp_init()"/>
+  <periodic fun="baro_scp_periodic()" freq="1.8"/>
+  <event fun="baro_scp_event()"/>
+  <makefile target="ap">
+    <file name="baro_scp.c"/>
+    <flag name="SPI_MASTER"/>
+    <flag name="USE_SPI"/>
+  </makefile>
+</module>
+

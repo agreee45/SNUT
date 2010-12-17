@@ -1,0 +1,22 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="demo_module">
+  <header>
+    <file name="demo_module.h"/>
+  </header>
+  <init fun="init_demo()"/>
+  <periodic fun="periodic_1Hz_demo()" freq="1." start="start_demo()" stop="stop_demo()" autorun="TRUE"/>
+  <periodic fun="periodic_10Hz_demo()" period="0.1" start="start_demo()" stop="stop_demo()" autorun="FALSE"/>
+  <makefile>
+    <raw>
+#Exemple of RAW makefile part
+    </raw>
+    <flag name="DEMO_MODULE_LED" value="2"/>
+    <file name="demo_module.c"/>
+  </makefile>
+  <makefile target="demo">
+    <flag name="SOME_FLAG"/>
+    <define name="SOME_DEFINE" value="bla"/>
+  </makefile>
+</module>
+
